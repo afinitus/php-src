@@ -927,7 +927,7 @@ static inline int php_tcp_sockop_connect(php_stream *stream, php_netstream_data_
 	if (PHP_STREAM_CONTEXT(stream) && (tmpzval = php_stream_context_get_option(PHP_STREAM_CONTEXT(stream), "socket", "bindto")) != NULL) {
 		if (Z_TYPE_P(tmpzval) != IS_STRING) {
 			if (xparam->want_errortext) {
-				xparam->outputs.error_text = strpprintf(0, "local_addr context option is not a string.");
+				xparam->outputs.error_text = strpprintf(0, "bindto context option is not a string.");
 			}
 			efree(host);
 			return -1;

@@ -489,7 +489,7 @@ directory where the test scripts are located and should be relative. Optionally 
 pass configuration to the executed tests.
 
 Redirect tests may especially contain ``--SKIPIF--``, ``--ENV--``, and ``--ARGS--`` sections but
-they no not use any ``--EXPECT--`` section.
+they do not use any ``--EXPECT--`` section.
 
 The redirected tests themselves are just normal tests.
 
@@ -500,9 +500,11 @@ All tests should run correctly with error_reporting(E_ALL) and display_errors=1.
 when called from ``run-tests.php``. If you have a good reason for lowering the error reporting, use
 ``--INI--`` section and comment this in your testcode.
 
-If your test intentionally generates a PHP warning message use $php_errormsg variable, which you can
-then output. This will result in a consistent error message output across all platforms and PHP
-configurations, preventing your test from failing due inconsistencies in the error message content.
+If your test intentionally generates a PHP warning message use ``error_get_last()``, which returns
+the last error as an array whose ``message`` element you can then output. (The ``$php_errormsg``
+variable and the ``track_errors`` INI setting were removed in PHP 8.0.) This will result in a
+consistent error message output across all platforms and PHP configurations, preventing your test
+from failing due inconsistencies in the error message content.
 Alternatively you can use ``--EXPECTF--`` and check for the message by replacing the path of the
 source of the message with ``%s`` and the line number with ``%d``. The end of a message in a test
 file ``example.phpt`` then looks like ``in %sexample.php on line %d``. We explicitly dropped the

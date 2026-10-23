@@ -137,8 +137,8 @@ PHP                                                                        NEWS
     and SQLite3Result::finalize()). (Ilia Alshanetsky)
 
 - Streams:
-  . Applied the so_linger, so_rcvbuf and so_sndbuf context options to unix
-    sockets. (David Carlier)
+  . Applied the so_rcvbuf and so_sndbuf context options to unix sockets.
+    (David Carlier)
 
 - Standard:
   . Fixed bug #60110 (fclose(), file_put_contents(), copy() do not return false

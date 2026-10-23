@@ -77,8 +77,8 @@ PHP 8.7 UPGRADE NOTES
     locale, and a TypeError if it contains a non-string value.
 
 - Streams:
-  . The so_linger, so_rcvbuf and so_sndbuf stream socket context options are
-    now also applied to unix and unix datagram sockets.
+  . The so_rcvbuf and so_sndbuf stream socket context options are now also
+    applied to unix and unix datagram sockets.
 
 ========================================
 3. Changes in SAPI modules
